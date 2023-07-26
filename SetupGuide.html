@@ -1,0 +1,1283 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hamline MultimediaGallery Kiosk Setup Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <style>:root {--primary-color: #432E30;--primary-color-light: #8E7474;--accent-color: #FE6A6B;--accent-color-light: #FFE4E4;--accent-color-dark: #B94B4C;--white-color: #FAFBFC;--light-gray-color: #C6CBD1;--medium-gray-color: #959DA5;--dark-gray-color: #444D56;--bg-color: #F8F8FA;--code-bg-color: #F0E8E8;}html, body {padding: 0;margin: 0;font-family: 'Nunito Sans', sans-serif;background-color: white;}p, li {font-weight: 300;color: #4A4A4A;}li { margin-bottom: 2px; }a, a:hover {text-decoration: none;color: #B94B4C;}hr {padding: 1rem 0;border: 0;border-bottom: 1px solid var(--bg-color);}* {box-sizing: border-box;}.section__title {color: var(--primary-color);}.tab__container {position: relative;}.tab__container > ul {position: absolute;list-style: none;margin: 0;right: 1rem;top: -2rem;padding-left: 0;}.tab__container .code {white-space: normal;padding: 1rem 1.5rem;}.tab {display: inline-block;padding: 0.3rem 0.5rem;font-weight: 200;cursor: pointer;}.tab.active {border-bottom: 1px solid var(--primary-color);font-weight: 700;display: inline-block;}.tab__pane {display: none;}.tab__pane.active {display: block;}.code {border-radius: 3px;font-family: Space Mono, SFMono-Regular, Menlo,Monaco, Consolas, Liberation Mono, Courier New, monospace;background: var(--bg-color);border: 1px solid var(--code-bg-color);color: var(--primary-color-light);padding: 0 1.5rem 1.2rem;}.code--block {white-space: pre-line;padding: 0 1.5rem;}pre {max-width: 800px;overflow: scroll;}.code--inline {padding: 3px 6px;font-size: 80%;}.button--primary {padding: 10px 22px;background-color: var(--accent-color);color: white;position: relative;text-decoration: none;border: 0;transition: all .3s ease-out;}.button--primary:after {position: absolute;content: "";width: 1rem;height: 1rem;background-color: var(--accent-color-light);right: -0.4rem;top: -0.4rem;transition: all 0.3s ease-out;}.button--primary:hover {text-shadow: 0px 1px 1px var(--accent-color-dark);color: white;transform: translate3D(0, -3px, 0);}.button--primary:hover::after {transform: rotate(90deg);}.button--secondary {padding: 10px 22px;border: 2px solid var(--primary-color);transition: all 0.5s ease-out;}.button--secondary:hover {border-color: var(--accent-color);color: var(--accent-color);}.link {text-decoration: none;transition: all 0.3s ease-out;}.link:hover {color: var(--accent-color);}.link--dark {color: var(--primary-color);}.link--light {color: var(--accent-color);}nav {display: grid;grid-template-columns: 70px auto;}.menu {margin: 0;text-align: right;overflow: hidden;list-style: none;}.toggle {display: none;position: relative;}.toggle span,.toggle span:before,.toggle span:after {content: '';position: absolute;height: 2px;width: 18px;border-radius: 2px;background: var(--primary-color);display: block;cursor: pointer;transition: all 0.3s ease-in-out;right: 0;}.toggle span:before {top: -6px;}.toggle span:after {bottom: -6px;}.toggle.open span{background-color: transparent;}.toggle.open span:before,.toggle.open span:after {top: 0;}.toggle.open span:before {transform: rotate(45deg);}.toggle.open span:after {transform: rotate(-45deg);}.menu__item {padding: 1rem;display: inline-block;}.menu__item.toggle {display: none;}table {border-collapse: collapse;width: 100%;transition: color .3s ease-out;margin-bottom: 2rem;}table td, table th {border: 1px solid var(--code-bg-color);padding: 0.8rem;font-weight: 300;}table th {text-align: left;background-color: white;border-color: white;border-bottom-color: var(--code-bg-color);}table td:first-child {background-color: var(--bg-color);font-weight: 600;}@media screen and (max-width: 600px) {nav {grid-template-columns: 70px auto;}.menu__item{display: none;}.menu__item.toggle {display: inline-block;}.menu {text-align: right;padding: 0.5rem 1rem;}.toggle {display: block;}.menu.responsive .menu__item:not(:first-child) {display: block;padding: 0 0 0.5rem 0;}}.wrapper {margin: 0 auto;width: 70%;}.footer {text-align: center;background-color: var(--primary-color);padding: 2rem;color: white;}@keyframes fadeUp {0% {opacity: 0;transform: translate3d(0,30px,0);}100% {transform: translate3d(0,0,0);}}h3 { font-size: 2.3rem; }h4 { font-size: 1.4rem; margin-top: 3.2rem; margin-bottom: 0; }h5{font-size: 0.9rem; text-transform: uppercase; margin-top: 3rem; margin-bottom: 0; }table { margin-top: 1.5rem; }table th { font-weight: bold; font-size: 0.8rem; padding-bottom: 0.4rem; text-transform: uppercase; }p, pre { margin-top: 0.4rem; }html, body {display: flex;flex-direction: column;min-height: 100vh;}.header {border-bottom: 1px solid var(--code-bg-color);grid-template-columns: 1fr 150px 60% 1fr;}.wrapper {display: flex;flex-grow: 1;}.logo {font-weight: 900;color: var(--primary-color);font-size: 1.4em;grid-column-start: 2;grid-column-end: 4;}.logo__thin {font-weight: 300;}.menu {grid-template-columns: 1fr 180px 60% 1fr;}.menu__item {padding: 1.5rem 1rem;}.doc__bg {position: fixed;top: 0;left: 0;bottom: 0;width: 28%;background-color: var(--bg-color);z-index: -1;}.doc__nav {flex-basis: 20%;font-weight: 200;}.doc__nav ul {list-style: none;padding-left: 0;line-height: 1.8;}.doc__nav ul.fixed {position: fixed;top: 2rem;}.doc__nav li:hover {color: var(--primary-color-light);cursor: pointer;transition: color .3s ease-in-out;}.doc__nav .selected {color: var(--accent-color);position: relative;}.doc__nav .selected:after {position: absolute;content: "";width: 1rem;height: 1rem;background-color: var(--accent-color);left: -1.5rem;top: 0.3rem;}.doc__content {flex-basis: 80%;padding: 0 0 5rem 1rem;}@media (max-width: 750px) {.wrapper {flex-direction: column;}.doc__content {padding-left: 0;}.doc__nav ul {border-bottom: 1px solid var(--code-bg-color);padding-bottom: 0.5rem;}.doc__nav ul.fixed {position: relative;top: 0;}.doc__nav li {display: inline-block;padding-right: 1rem;}.doc__nav .selected:after {display: none;}}
+  </style>
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">MultimediaGallery <span class="logo__thin">Setup Guide</span></h1>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Overview</li>
+          <li class="js-btn">Installation</li>
+          <li class="js-btn">Folder Structure</li>
+          <li class="js-btn">Configuration</li>
+          <li class="js-btn">Settings</li>
+          <li class="js-btn">Home</li>
+          <li class="js-btn">Menu</li>
+          <li class="js-btn">Table of Contents</li>
+          <li class="js-btn">Credits</li>
+          <li class="js-btn">Help</li>
+          <li class="js-btn">Map</li>
+          <li class="js-btn">Video</li>
+          <li class="js-btn">Image Gallery</li>
+          <li class="js-btn">Panorama</li>
+          <li class="js-btn">HTML</li>
+          <li class="js-btn">3D Object</li>
+          <li class="js-btn">Full Example</li>
+          <li class="js-btn">Performance</li>
+        </ul>
+      </aside>
+      <article class="doc__content">
+
+        <section class="js-section">
+          <h3 class="section__title">Overview</h3>
+          <p>This guide is for version 1.1 of the MultimediaGallery.</p>
+          <p>The version number is listed in the DevTools panel, which is only viewable when the gallery is running in devMode.</p>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Installation</h3>
+          <h4>Mac OS</h4>
+          <ol>
+            <li>Open the <b>node-v11.2.0.pkg</b> file. Follow the instructions to install Node.</li>
+            <li>Copy the <b>MultimediaGallery</b> application using the Finder.</li>
+            <li>Open the <b>Applications</b> folder alias. This should open the Applications folder on your computer.</li>
+            <li>Paste the <b>MultimediaGallery</b> application into the Applications folder using the Finder.</li>
+            <li>Open the <b>MultimediaGallery</b> application. The gallery should load and open in full screen kiosk mode.</li>
+          </ol>
+          <h5>Quitting</h5>
+          <p>To quit the program with a keyboard, enter the 4-digit pin or use the Command+Q keyboard shortcut. If no keyboard is available, navigate to the Credits popup and hold three fingers on the logo image for 3 seconds.</p>
+          <h5>Making Changes</h5>
+          <p>To make changes to the Gallery, you will need access to the <b>content</b> folder. This folder is hidden by default. To access it:</p>
+          <ol>
+              <li>Open the <b>Applications</b> folder.</li>
+              <li>Right-click on the <b>MultimediaGallery</b> application and choose <b>Show Package Contents</b>.</li>
+              <li>Open the <b>public</b> folder.</li>
+              <li>Open the <b>content</b> folder.</li>
+          </ol>
+          <h4>Windows</h4>
+          <ol>
+
+            <li>Open the <b>node-v11.2.0-x64.msi</b> file. Follow the instructions to install Node. Use the default settings.</li>
+            <li>Copy the <b>MultimediaGallery</b> folder to the <b>C:</b> drive so it is located at <b>C:/MultimediaGallery</b>.</li>
+            <li>Open the <b>MultimediaGallery</b> folder on the <b>C:</b> drive.</li>
+            <li>Open the <b>Package</b> folder and the <b>Scripts</b> folder.</li>
+            <li>Run the <b>InstallModules</b> file. This may take a while.</li>
+            <li>Return to the <b>MultimediaGallery</b> folder.</li>
+            <li>Run the <b>StartMultimediaGallery</b> file.</li>
+          </ol>
+          <h5>Disabling Windows 10 Keyboard Shortcuts</h5>
+          <ol>
+            <li>Open the <b>Local Group Policy Editor</b> (Windows 10 Pro or Windows 10 Educational)</li>
+            <li>Go to User Configuration > Administrative Templates > System > CTRL + ALT + Del Options > Remove Lock Computer<br>Set to <b>Enabled</b></li>
+            <li>Go to User Configuration > Administrative Templates > System > CTRL + ALT + Del Options > Remove Task Manager<br>Set to <b>Enabled</b></li>
+            <li>Go to User Configuration > Administrative Templates > System > CTRL + ALT + Del Options > Remove Change Password<br>Set to <b>Enabled</b></li>
+            <li>Go to User Configuration > Administrative Templates > System > CTRL + ALT + Del Options > Remove Logoff<br>Set to <b>Enabled</b></li>
+            <li>Go to Computer Configuration > Administrative Templates > System > Logon > Hide entry points for Fast User Switching<br>Set to <b>Enabled</b></li>
+            <li>Go to Computer Configuration > Administrative Templates > System > Device Installation > Device Installation Restrictions > Prevent installation of devices not described by other policy settings<br>Set to <b>Enabled</b></li>
+            <li>Go to Computer Configuration > Administrative Templates > System > Logon > Turn off app notifications on the lock screen<br>Set to <b>Enabled</b></li>
+          </ol>
+          <h5>Disabling Windows Explorer and Edge Gestures</h5>
+          <p>Run the <b>StartMultimediaGalleryDisableExplorer</b> file. Note: this method will turn off Windows Explorer completely.</p>
+          <h4>Alternative Method to Disable Edge Gestures</h4>
+          <ol>
+            <li>Open the <b>Local Group Policy Editor</b> (Windows 10 Pro or Windows 10 Educational)</li>
+            <li>Go to Computer Configuration > Administrative Templates > Windows Components > Edge UI<br>Set to <b>Disable</b></li>
+          <h5>Quitting</h5>
+          <p>To quit the program, navigate to the Credits popup and hold three fingers on the logo image for 3 seconds. Alternatively, type in the pin (1234 is the default). Double tap the <b>EnableExplorer</b> shortcut to start Windows Explorer again.</p>
+          <h5>Making Changes</h5>
+          <p>To make changes to the Gallery, you will need access to the <b>content</b> folder. To access it, open the <b>C:/MultimediaGallery/package/public/content</b> folder.</p>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Folder Structure</h3>
+          <p>All content, media, settings and log files live inside the <b>content</b> folder. See Installation above for steps to locate this folder.</p>
+          <p>Inside the <b>content</b> folder, you can organize sub-folders any way that makes sense to you.</p>
+          <h4>Files & Folders</h4>
+          <table>
+            <tr>
+              <th>File/Folder</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>configuration.xml</td>
+              <td>This file contains all configuration settings for the MultimediaGallery.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>audio/intro.mp3</td>
+              <td>This is the audio file that plays in the background on the Home / Attract screen and the Menu screen. It is required.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>logs/</td>
+              <td>Folder for log files. Log files will be generated automatically and put into this folder.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>galleries/</td>
+              <td>Folder for image galleries. Use a separate folder for each image gallery.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>html/</td>
+              <td>Folder for local HTMl modules. Use a separate folder for each HTML module.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>images/</td>
+              <td>Folder for logos, backgrounds, and thumbnail images.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>maps/</td>
+              <td>Folder for maps. Use a separate folder for each map.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>objects/</td>
+              <td>Folder for 3D objects.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>panoramas/</td>
+              <td>Folder for 360 degree panoramas. Use a separate folder for each panorama.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>videos/</td>
+              <td>Folder for videos.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>galleries/</td>
+              <td>Folder for image galleries.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Configuration</h3>
+          <p>The <b>configuration.xml</b> file contains all configuration settings for the MultimediaGallery. It is required.</p>
+          <h4>Required Tags</h4>
+          <p>The XML file needs to have a <b>&lt;main&gt;</b> tag. All other tags are nested inside it. The order of required tags does not matter.</p>
+          <table>
+            <tr>
+              <th>Tag</th>
+              <th>Description</th>
+              <th>Parent</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;main&gt;</td>
+              <td>Container for all other tags.</td>
+              <td>none</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;settings&gt;</td>
+              <td>Global settings for development mode and timeout duration.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;home&gt;</td>
+              <td>Settings and content for the attract screen.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;menu&gt;</td>
+              <td>Settings and content for the main menu screen.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;toc&gt;</td>
+              <td>Content for the Table of Contents popup.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;credits&gt;</td>
+              <td>Content for the Credits popup.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;help&gt;</td>
+              <td>Path to the video or image that displays in the Help popup.</td>
+              <td>&lt;main&gt;</td>
+              <td>yes</td>
+            </tr>
+          </table>
+          <h4>Optional Tags</h4>
+          <p>There are currently six optional tags. These are for the different media types.</p>
+          <p>These tags can be placed directly inside the <b>&lt;main&gt;</b> tag or nested inside a <b>&lt;map&gt;</b> tag. If they are nested inside <b>&lt;main&gt;</b>, they will appear as buttons on the main menu. If they are nested in a <b>&lt;map&gt;</b>, they will appear as buttons on that map's carousel. The order here determines the order they will appear on screen.</p>
+          <p>Note: <b>&lt;map&gt;</b> tags can be nested inside other <b>&lt;map&gt;</b> tags up to three levels deep.</p>
+          <table>
+            <tr>
+              <th>Tag</th>
+              <th>Description</th>
+              <th>Parent</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;video&gt;</td>
+              <td>video</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;map&gt;</td>
+              <td>map</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;gallery&gt;</td>
+              <td>image gallery</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;panorama&gt;</td>
+              <td>360 degree panorama</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;html&gt;</td>
+              <td>local HTML module or remote website</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;object&gt;</td>
+              <td>3D object</td>
+              <td>&lt;main&gt; or &lt;map&gt;</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Settings</h3>
+          <p>The <b>&lt;settings&gt;</b> tag contains global settings for development mode and timeout duration. It is required.</p>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>timeout</td>
+              <td>attribute</td>
+              <td>Number of seconds of inactivity required before the kiosk warns and resets the session.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>timeoutLong</td>
+              <td>attribute</td>
+              <td>Number of seconds when viewing an HTML module before the kiosk warns and resets the session.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>pin</td>
+              <td>attribute</td>
+              <td>A 4-digit pin that is used to quit the kiosk. User must enter the pin from the Home / Attract screen. If you do not include a pin, the default pin is "1234".</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>mapLogo</td>
+              <td>attribute</td>
+              <td>Path to an image file with a logo that will display on the Maps screen.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>headingFont</td>
+              <td>attribute</td>
+              <td>Path to a font in <b>ttf</b> or <b>woff</b> format that will override the default font for headings throughout the interface.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>copyFont</td>
+              <td>attribute</td>
+              <td>Path to a font in <b>ttf</b> or <b>woff</b> format that will override the default font for copy throughout the interface.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>devMode</td>
+              <td>attribute</td>
+              <td>If devMode="true", the kiosk will start in development mode showing the Log Viewer and Dev Tools panels.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideMediaIndex</td>
+              <td>attribute</td>
+              <td>If <b>hideMediaIndex="true"</b>, the Media Index button will be hidden.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideMainMenu</td>
+              <td>attribute</td>
+              <td>If <b>hideMainMenu="true"</b>, the Main Menu will be hidden. When the user touches the attract screen, the kiosk will automatically open the first media element.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;settings kioskId="kauai-museum-1234" pin="2468" timeout="90" timeoutLong="900" devMode="true" headingFont="fonts/Candara.ttf" mapLogo="images/logo.png" hideMediaIndex="true"&gt;&lt;/settings&gt;
+</code></pre>
+</div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Home</h3>
+          <p>The <b>&lt;home&gt;</b> tag contains content and settings for the attract screen. It is required.</p>
+          <table>
+            <tr>
+              <th>Tag/Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>Text for the main title of the Kiosk. Use <b>[br]</b> to create a line break.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;prompt&gt;</td>
+              <td>tag</td>
+              <td>Text prompting users to touch the screen to start.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>background</td>
+              <td>attribute</td>
+              <td>Paths to one or more background images separated by commas.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>backgroundDuration</td>
+              <td>attribute</td>
+              <td>Time in seconds to display a background image before fading to the next image. The default value is 10.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>backgroundVideo</td>
+              <td>attribute</td>
+              <td>Path to a background video in <b>mp4</b> format. The video will automatically loop continiously.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>overlayImage</td>
+              <td>attribute</td>
+              <td>Path to a transparent <b>png</b> image. This can be used as an alternative to the <b>title</b> and <b>prompt</b> tags. The image will automatically scale to fit the available space without cropping.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Images Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;home background="images/bg.jpg, images/scene.png, images/canyon.png" backgroundDuration="10"&gt;
+  &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+  &lt;prompt&gt;TOUCH TO EXPLORE&lt;/prompt&gt;
+&lt;/home&gt;
+</code></pre>
+          </div>
+          <h4>Video Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;home backgroundVideo="videos/intro.mp4"&gt;
+  &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+  &lt;prompt&gt;TOUCH TO EXPLORE&lt;/prompt&gt;
+&lt;/home&gt;
+</code></pre>
+          </div>
+          <h4>Overlay Image Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;home backgroundVideo="videos/intro.mp4" overlayImage="images/title-overlay.png"&gt;
+&lt;/home&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Menu</h3>
+          <p>The <b>&lt;menu&gt;</b> tag contains content and settings for the main menu screen. It is required.</p>
+          <table>
+            <tr>
+              <th>Tag/Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>Text for the main title of the Kiosk. Use <b>[br]</b> to create a line break.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;description&gt;</td>
+              <td>tag</td>
+              <td>Text for the longer description of the Kiosk.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>logo</td>
+              <td>attribute</td>
+              <td>Path to the logo image.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>overlayImage</td>
+              <td>attribute</td>
+              <td>Path to a transparent <b>png</b> image. This can be used as an alternative to the <b>logo</b>, <b>title</b>, and <b>description</b> tags. The image will automatically scale to fit the available space without cropping.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;menu logo="images/logo.png"&gt;
+  &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+  &lt;description&gt;Explore Kauai's verdant beauty and timeless cultural traditions. Stories in the Kaua'i MultimediaGallery include videos, 3D artifacts from the Kaua'i Museum's archives, immersive 360-degree panoramas, and photo galleries.&lt;/description&gt;
+&lt;/menu&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Table of Contents</h3>
+          <p>The <b>&lt;toc&gt;</b> tag contains content for the Table of Contents screen. It is required.</p>
+          <table>
+            <tr>
+              <th>Tag</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>Text for the main title of the Table of Contents page.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;description&gt;</td>
+              <td>tag</td>
+              <td>Text for the smaller text that appears below the title.</td>
+              <td>yes</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;toc&gt;
+  &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+  &lt;description&gt;Featuring 62 videos, 13 interactive maps, 12 galleries, 8 panoramas and 2 interactive websites.&lt;/description&gt;
+&lt;/toc&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Credits</h3>
+          <p>The <b>&lt;credits&gt;</b> tag contains content for the credits popup. It is required.</p>
+          <table>
+            <tr>
+              <th>Tag</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;heading&gt;</td>
+              <td>tag</td>
+              <td>A heading or job title. You can include multiple heading tags.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;text&gt;</td>
+              <td>tag</td>
+              <td>Text that appears below a heading like a name. You can include multiple text tags.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;left&gt;</td>
+              <td>tag</td>
+              <td>A container for text to appear in the left column. See example for details.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;right&gt;</td>
+              <td>tag</td>
+              <td>A container for text to appear in the right column. See example for details.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>A title for the left or right column. See example for details.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>logo</td>
+              <td>attribute</td>
+              <td>Path to the logo image.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example (single column)</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;credits logo="images/logo"&gt;
+  &lt;heading&gt;Executive Producer&lt;/heading&gt;
+  &lt;text&gt;Tracy Fredin&lt;/text&gt;
+  &lt;heading&gt;Producer, Videographer, Editor&lt;/heading&gt;
+  &lt;text&gt;John Shepard&lt;/text&gt;
+  &lt;heading&gt;Special Thanks&lt;/heading&gt;
+  &lt;text&gt;John Doe&lt;/text&gt;
+  &lt;text&gt;Jane Doe&lt;/text&gt;
+&lt;/credits&gt;
+</code></pre>
+          </div>
+          <h4>Example (two columns)</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;credits logo="images/logo"&gt;
+  &lt;left&gt;
+    &lt;title&gt;Left Title&lt;/title&gt;
+    &lt;heading&gt;Executive Producer&lt;/heading&gt;
+    &lt;text&gt;Tracy Fredin&lt;/text&gt;
+    &lt;heading&gt;Producer, Videographer, Editor&lt;/heading&gt;
+    &lt;text&gt;John Shepard&lt;/text&gt;
+  &lt;/left&gt;
+  &lt;right&gt;
+    &lt;title&gt;Left Title&lt;/title&gt;
+    &lt;heading&gt;Special Thanks&lt;/heading&gt;
+    &lt;text&gt;John Doe&lt;/text&gt;
+    &lt;text&gt;Jane Doe&lt;/text&gt;
+  &lt;/right&gt;
+&lt;/credits&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Help</h3>
+          <p>The <b>&lt;help&gt;</b> tag contains the path to a help video or image. It is required. The video should be in mp4 format. If an image is used, it should be in png or jpg format.</p>
+          <h4>Captions</h4>
+          <p>If the folder contains a .vtt caption file with the same name, it will be used to display closed captions. For example, if the video file is named <b>help.mp4</b>, the caption file should be named <b>help.vtt</b>.</p>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>file</td>
+              <td>attribute</td>
+              <td>Path to the video in mp4 format or the image in png or jpg format.</td>
+              <td>yes</td>
+            </tr>
+          </table>
+          <h4>Video Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;help file="videos/help.mp4"&gt;&lt;/help&gt;
+</code></pre>
+          </div>
+          <h4>Image Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;help file="images/help.png"&gt;&lt;/help&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Map</h3>
+          <p>The <b>&lt;map&gt;</b> tag contains settings for a map module.</p>
+          <h4>Nesting</h4>
+          <p>Each map module can have up to 18 nested child modules. For more information on the nesting structure, please review the <b>Configuration</b> section of this guide.</p>
+          <h4>Map Tile Creation</h4>
+          <p>Use Ideum's <b>MapCreationApplication</b> to download map tiles.</p>
+          <ol>
+            <li>Select Map Source: Mapbox</li>
+            <li>Select Map Style: streets or satellite-streets</li>
+            <li>Choose the Bounding Box setting.</li>
+            <li>Enter longitude and latitude coordinates.</li>
+            <li>Choose a zoom level. Try to pick a zoom level that does not exceed 300 maptiles.</li>
+            <li>Check the box that says <b>For Testing Purposes Save Entire Map as Single Image</b>. Leave the name field blank.</li>
+            <li>Click <b>Go</b> and wait for the files to download.</li>
+            <li><b>Important</b>: Find the <b>FullMapImage.jpg</b> file. If the width is larger than 3000 pixels, use a tool like Photoshop to resize it so the width is 3000 pixels. Keep the same aspect ratio.</li>
+            <li>Copy all map files into a folder such as <b>/content/maps/kauai/</b>. Make sure to include the tile images, the <b>FullMapImage.jpg</b> image and the <b>MapImageLayout.json</b> file.</li>
+          </ol>
+          <h4>Map Configuration</h4>
+          <p>
+          <table>
+            <tr>
+              <th>Tag/Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+                <td>&lt;title&gt;</td>
+                <td>tag</td>
+                <td>The title of the map module.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>&lt;description&gt;</td>
+                <td>tag</td>
+                <td>A brief description of the map module.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+              <td>thumb</td>
+              <td>attribute</td>
+              <td>Thumbnail image for the map module. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>folder</td>
+              <td>attribute</td>
+              <td>Path to the folder containing the map images and <b>MapImageLayout.json</b> file. It is not necessary to include the <b>content</b> folder in the path.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>mapX</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the starting horizontal location of the map. The default value is <b>0</b> which will center the map horizontally. Use the <b>Dev Tools</b> to preview <b>mapX</b> and <b>mapY</b> coordinates. Note: this is not used for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>mapY</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the starting vertical location of the map. The default value is <b>0</b> which will center the map vertically. Use the <b>Dev Tools</b> to preview <b>mapX</b> and <b>mapY</b> coordinates. Note: this is not used for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>lat</td>
+              <td>attribute</td>
+              <td>Latitude coordinate for the center of the map. Note: this is only used for the web-based version of the MMG. Use the <b>Dev Tools</b> to preview <b>lat</b> and <b>long</b> coordinates.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>long</td>
+              <td>attribute</td>
+              <td>Longitude coordinate for the center of the map. Note: this is only used for the web-based version of the MMG. Use the <b>Dev Tools</b> to preview <b>lat</b> and <b>long</b> coordinates.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>zoom</td>
+              <td>attribute</td>
+              <td>A number between 1 and 10. The default value for the local version of the MMG is <b>1</b>. This indicates the map should start zoomed out as far as possible. Use the <b>Dev Tools</b> to preview <b>zoom</b> values. Note: zoom values may be different for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>maxZoom</td>
+              <td>attribute</td>
+              <td>A number between 1 and 10. The default value is <b>10</b>. Use the <b>Dev Tools</b> to preview <b>zoom</b> values. Note: <b>maxZoom</b> is currently not applicable to the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinX</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the map is nested within another map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinY</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the map is nested within another map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>switchPoint</td>
+              <td>attribute</td>
+              <td>A number between 1 and 10.  This number indicates at which <b>zoom</b> value the map should switch from the lower resolution full map image to the high resolution map tiles. The default value is 3. This is only used for performance fine-tuning. Use the <b>Dev Tools</b> to preview different <b>switchPoint</b> values. Note: this is not used for the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>showTitle</td>
+              <td>attribute</td>
+              <td>If showTitle="true", the title of the map will display in large text centered over the map. This can be useful for maps that do not have any pins. Note: this is not currently available in the web-based version of the MMG.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideZoomButtons</td>
+              <td>attribute</td>
+              <td>Use <b>hideZoomButtons="true"</b> to hide the pan and zoom buttons on the map.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>topics</td>
+              <td>attribute</td>
+              <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;map thumb="images/hut.png" folder="maps/kauai/" showTitle="true" topics="maps, islands"&gt;
+  &lt;title&gt;Kauai's Cultural History&lt;/title&gt;
+  &lt;description&gt;Sit nostrud labore ea ad labore quis cupidatat mollit nisi pariatur.&lt;/description&gt;
+&lt;/map&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Video</h3>
+          <p>The <b>&lt;video&gt;</b> tag contains settings for a video.</p>
+          <p>Video files should be in <b>mp4</b> format.</p>
+          <h4>Captions</h4>
+          <p>If the folder containing the video file also contains a <b>vtt</b> caption file with the same name, it will be used to display closed captions. For example, if the video file is named <b>intro.mp4</b>, the caption file should be named <b>intro.vtt</b>.</p>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+                <td>&lt;title&gt;</td>
+                <td>tag</td>
+                <td>The title of the video.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>&lt;description&gt;</td>
+                <td>tag</td>
+                <td>A brief description of the video.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+              <td>thumb</td>
+              <td>attribute</td>
+              <td>Thumbnail image for the video. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>file</td>
+              <td>attribute</td>
+              <td>Path to the video in mp4 format.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>fit</td>
+              <td>attribute</td>
+              <td>Determines how a video fits the available space on screen. The options are <b>fill</b>, <b>stretch</b> and <b>normal</b>. Fill will enlarge the video to fill the screen (may cause cropping). Stretch will stretch the video to fill the screen. Normal will enlarge the video without cropping (may result in black bars). The default is <b>normal</b>.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinX</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b> and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinY</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>topics</td>
+              <td>attribute</td>
+              <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideFromIndex</td>
+              <td>attribute</td>
+              <td>Use <b>hideFromIndex="true"</b> to indicate that this item should not show up in the Media Index.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;video thumb="images/museum.png" file="videos/museum.mp4" topics="art, artificats, culture, history" pinX="535" pinY="-184"&gt;
+  &lt;title&gt;Museum Video&lt;/title&gt;
+  &lt;description&gt;Officia tempor veniam commodo sunt exercitation dolore magna adipisicing fugiat.&lt;/description&gt;
+&lt;/video&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Image Gallery</h3>
+          <p>The <b>&lt;gallery&gt;</b> tag contains settings for an image gallery.</p>
+          <p>All images for a single gallery should be kept in one folder. Images should be in <b>jpg</b> format. Images should be numbered as <b>1.jpg</b>, <b>2.jpg</b>, <b>3.jpg</b>, etc.</p>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>The title of the gallery.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;description&gt;</td>
+              <td>tag</td>
+              <td>A brief description of the gallery.</td>
+              <td>yes</td>
+            </tr>
+              <tr>
+              <td>thumb</td>
+              <td>attribute</td>
+              <td>Thumbnail image for the gallery. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>folder</td>
+              <td>attribute</td>
+              <td>Path to the folder containing the gallery images. It is not necessary to include the <b>content</b> folder in the path.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>imageCount</td>
+              <td>attribute</td>
+              <td>The number of images in the gallery.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>fit</td>
+              <td>attribute</td>
+              <td>Determines how the images fit the available space on screen. The options are <b>fill</b>, <b>stretch</b> and <b>normal</b>. Fill will enlarge the images to fill the screen (may cause cropping). Stretch will stretch the images to fill the screen. Normal will enlarge the images without cropping (may result in black bars). The default is <b>normal</b>.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinX</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b> and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinY</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>topics</td>
+              <td>attribute</td>
+              <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideFromIndex</td>
+              <td>attribute</td>
+              <td>Use <b>hideFromIndex="true"</b> to indicate that this item should not show up in the Media Index.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;gallery thumb="images/history.png" folder="galleries/history/" imageCount="12" topics="history, culture" pinX="-2113.56" pinY="826.79"&gt;
+  &lt;title&gt;History Gallery&lt;/title&gt;
+  &lt;description&gt;Eiusmod pariatur culpa voluptate anim eu incididunt.&lt;/description&gt;
+&lt;/gallery&gt;
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Panorama</h3>
+          <p>The <b>&lt;panorama&gt;</b> tag contains settings for a panorama.</p>
+          <p>All files for a single panorama should be kept in one folder.</p>
+          <h4>Panorama Setup</h4>
+          <ol>
+            <li>Use the <b><a href="http://www.marzipano.net/tool/index.html">Marizipano Tool</a></b> to create a Panorama.</li>
+            <li>Copy all files into a sub-folder in the <b>content</b> folder such as <b>content/panoramas/lava/</b>. This should include 4 files: <b>data.js</b>, <b>index.html</b>, <b>index.js</b>, <b>style.css</b> and 3 folders: <b>img</b>, <b>tiles</b>, <b>vendor</b>.</li>
+            <li>Open <b>index.html</b>.</li>
+            <li>On line 10, find: <b>&lt;link rel="stylesheet" href="style.css"&gt;</b></li>
+            <li>Underneath it, add: <b>&lt;link rel="stylesheet" href="../../../panorama.css"&gt;</b></li>
+            <li>Save the file.</li>
+          </ol>
+          <table>
+            <tr>
+              <th>Attribute</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Required</th>
+            </tr>
+            <tr>
+              <td>thumb</td>
+              <td>attribute</td>
+              <td>Thumbnail image for the panorama. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>folder</td>
+              <td>attribute</td>
+              <td>Path to the folder containing the panorama files. It is not necessary to include the <b>content</b> folder in the path.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;title&gt;</td>
+              <td>tag</td>
+              <td>The title of the panorama.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>&lt;description&gt;</td>
+              <td>tag</td>
+              <td>A brief description of the panorama.</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>pinX</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b> and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>pinY</td>
+              <td>attribute</td>
+              <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates. Note: this is not used for the web-based version of the MMG (use <b>lat</b and <b>long</b> instead.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>topics</td>
+              <td>attribute</td>
+              <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>hideFromIndex</td>
+              <td>attribute</td>
+              <td>Use <b>hideFromIndex="true"</b> to indicate that this item should not show up in the Media Index.</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <div class="code__block">
+<pre class="code xml"><code>
+&lt;panorama thumb="images/lava.png" folder="panoramas/lava/" topics="culture, islands, ocean, water" pinX="2025" pinY="-175"&gt;
+  &lt;title&gt;Lava Panorama&lt;/title&gt;
+  &lt;description&gt;Sunt officia pariatur laboris ut occaecat ullamco consectetur dolore sit labore est proident fugiat.&lt;/description&gt;
+&lt;/panorama>
+</code></pre>
+          </div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+            <h3 class="section__title">HTML</h3>
+            <p>The <b>&lt;html&gt;</b> tag contains settings for HTML modules or external websites.</p>
+            <p>All files for a single HTML module should be kept in one folder.</p>
+            <table>
+              <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Required</th>
+              </tr>
+              <tr>
+                <td>&lt;title&gt;</td>
+                <td>tag</td>
+                <td>The title of the HTML module.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>&lt;description&gt;</td>
+                <td>tag</td>
+                <td>A brief description of the HTML module.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>thumb</td>
+                <td>attribute</td>
+                <td>Thumbnail image for the HTML module. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>attribute</td>
+                <td>Path to the folder containing the HTML files or full URL of the external website. It is not necessary to include the <b>content</b> folder in the path.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>mediaType</td>
+                <td>attribute</td>
+                <td>Useful if you want an HTML module to display the icon for a different media type and to be categorized as a different media type. Available options: <b>video</b>, <b>gallery</b>, <b>panorama</b>, <b>object</b>, <b>video360</b></td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>pinX</td>
+                <td>attribute</td>
+                <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>pinY</td>
+                <td>attribute</td>
+                <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>topics</td>
+                <td>attribute</td>
+                <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>hideFromIndex</td>
+                <td>attribute</td>
+                <td>Use <b>hideFromIndex="true"</b> to indicate that this item should not show up in the Media Index.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>timeout</td>
+                <td>attribute</td>
+                <td>Number of seconds when viewing the HTML module before the kiosk warns and resets the session. This value is optional. If set, it overrides the global <b>timeoutLong</b> setting.</td>
+                <td>no</td>
+              </tr>
+              </table>
+            <h4>Example</h4>
+            <div class="code__block">
+  <pre class="code xml"><code>
+&lt;html thumb="images/volcanism.jpg" url="html/volcanism/" topics="environment, geography, lava" pinX="22.13" pinY="-159.603" timeout="300"&gt;
+  &lt;title&gt;Volcanism Interactive&lt;/title&gt;
+  &lt;description&gt;Irure exercitation elit occaecat voluptate cupidatat enim labore duis pariatur nostrud ullamco voluptate.&lt;/description&gt;
+&lt;/html&gt;
+    </code></pre>
+            </div>
+            <hr />
+          </section>
+
+          <section class="js-section">
+            <h3 class="section__title">3D Object</h3>
+            <p>The <b>&lt;object&gt;</b> tag contains settings for a three dimensional object.</p>
+            <p>Objects should be in <b>obj</b> and <b>mtl</b> format. Textures should be in <b>png</b> or <b>jpg</b> format. All files should be placed in the same folder and have the same name. For example, a 3D object called <b>bowl</b> will have three files: <b>bowl.obj</b>, <b>bowl.mtl</b>, and <b>bowl.jpg</b>. Texture files should be 512 pixels by 512 pixels.</p>
+            <table>
+              <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Required</th>
+              </tr>
+              <tr>
+                <td>&lt;title&gt;</td>
+                <td>tag</td>
+                <td>The title of the HTML module.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>&lt;description&gt;</td>
+                <td>tag</td>
+                <td>A brief description of the HTML module.</td>
+                <td>yes</td>
+              </tr>
+                <tr>
+                <td>thumb</td>
+                <td>attribute</td>
+                <td>Thumbnail image for the 3D object. Recommended size is approximately 800 by 600. Since thumbnails may get cropped, keep the focal point of the image in the center.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>folder</td>
+                <td>attribute</td>
+                <td>Path to the folder containing the 3D object files. It is not necessary to include the <b>content</b> folder in the path.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>file</td>
+                <td>attribute</td>
+                <td>The name of the object file. Do not include file extension.</td>
+                <td>yes</td>
+              </tr>
+              <tr>
+                <td>offsetZ</td>
+                <td>attribute</td>
+                <td>A value indicating the default zoom value of the object. The default value is 0.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>pinX</td>
+                <td>attribute</td>
+                <td>A positive or negative number indicating the horizontal location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>pinY</td>
+                <td>attribute</td>
+                <td>A positive or negative number indicating the vertical location of the map pin on the parent map. This is only used if the media item is nested within a map. Use the <b>Dev Tools</b> to preview <b>pinX</b> and <b>pinY</b> coordinates.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>topics</td>
+                <td>attribute</td>
+                <td>A comma separated list of one or more topics. Topics automatically genrate the <b>Topic</b> filter buttons on the <b>Table of Contents</b> popup.</td>
+                <td>no</td>
+              </tr>
+              <tr>
+                <td>hideFromIndex</td>
+                <td>attribute</td>
+                <td>Use <b>hideFromIndex="true"</b> to indicate that this item should not show up in the Media Index.</td>
+                <td>no</td>
+              </tr>
+              </table>
+            <h4>Example</h4>
+            <div class="code__block">
+<pre class="code xml"><code>
+&lt;object thumb="images/bowl.png" folder="objects/" file="model" topics="artifacts" pinX="1048" pinY="397" zOffset="-1.5"&gt;
+  &lt;title&gt;Minim Object&lt;/title&gt;
+  &lt;description&gt;Nostrud magna consectetur ex duis in sit sunt ut nisi.&lt;/description&gt;
+&lt;/object&gt;
+</code></pre>
+            </div>
+            <hr />
+          </section>
+  
+        <section class="js-section">
+            <h3 class="section__title">Full Example</h3>
+            <div class="code__block">
+<pre class="code xml"><code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;main&gt;
+  &lt;settings devMode="false" timeout="90" timeoutLong="900"&gt;&lt;/settings&gt;
+
+  &lt;home background="images/background.jpg, images/maptile.png, images/canyon.png" backgroundDuration="10"&gt;
+    &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+    &lt;prompt&gt;TOUCH TO EXPLORE&lt;/prompt&gt;
+  &lt;/home&gt;
+
+  &lt;menu logo="images/logo.png"&gt;
+    &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+    &lt;description&gt;Explore Kauai's verdant beauty and timeless cultural traditions.&lt;/description&gt;
+  &lt;/menu&gt;
+
+  &lt;toc&gt;
+    &lt;title&gt;KAUA'I: The Garden Isle&lt;/title&gt;
+    &lt;description&gt;Featuring 62 videos, 13 interactive maps, 12 galleries, 8 panoramas and 2 interactive websites.&lt;/description&gt;
+  &lt;/toc&gt;
+
+  &lt;credits logo="images/logo.png"&gt;
+    &lt;heading&gt;Executive Producer&lt;/heading&gt;
+    &lt;text&gt;Ad labore fugiat labore esse laboris aliqua dolor excepteur.&lt;/text&gt;
+    &lt;heading&gt;Director&lt;/heading&gt;
+    &lt;text&gt;Ad labore fugiat labore esse laboris aliqua dolor excepteur.&lt;/text&gt;
+  &lt;/credits&gt;
+
+  &lt;help file="videos/help.mp4"&gt;&lt;/help&gt;
+
+  &lt;video thumb="images/scene.jpg" file="videos/intro.mp4" topics="beaches, birds, environment"&gt;
+    &lt;title&gt;Kaua'i: The Two-Minute Tour&lt;/title&gt;
+    &lt;description&gt;Ea velit anim eiusmod nulla sunt veniam minim aliqua.&lt;/description&gt;
+  &lt;/video&gt;
+
+  &lt;map thumb="images/hut.png" folder="maps/kauai/"&gt;
+    &lt;title&gt;Kauai's Cultural History&lt;/title&gt;
+    &lt;description&gt;Sit nostrud labore ea ad labore quis cupidatat mollit nisi pariatur.&lt;/description&gt;
+
+    &lt;panorama thumb="images/tray.png" folder="panoramas/layers/" topics="culture, islands" pinX="22.927" pinY="-159.461"&gt;
+      &lt;title&gt;Ullamco Eu Panorama&lt;/title&gt;
+      &lt;description&gt;Sunt officia pariatur laboris ut occaecat ullamco consectetur dolore.&lt;/description&gt;
+    &lt;/panorama&gt;
+
+    &lt;gallery thumb="images/rope.png" folder="galleries/history/" imageCount="14" topics="environment" pinX="21" pinY="-160.1"&gt;
+      &lt;title&gt;Voluptate Veniam Gallery&lt;/title&gt;
+      &lt;description&gt;Eiusmod adipisicing consequat pariatur consectetur amet.&lt;/description&gt;
+    &lt;/gallery&gt;
+
+    &lt;map thumb="images/history2.png" folder="maps/history" pinX="21.94" pinY="-159.315"&gt;
+      &lt;title&gt;Proident in Culpa Region&lt;/title&gt;
+      &lt;description&gt;Excepteur incididunt excepteur est eu fugiat veniam.&lt;/description&gt;
+
+      &lt;video thumb="images/history.png" file="videos/museum.mp4" topics="art, artificats, calabashes" pinX="21.3" pinY="-159.3"&gt;
+        &lt;title&gt;Elit do Enim Deserunt Video&lt;/title&gt;
+        &lt;description&gt;Officia tempor veniam commodo sunt exercitation dolore magna adipisicing fugiat.&lt;/description&gt;
+      &lt;/video&gt;
+
+      &lt;gallery thumb="images/history.png" folder="galleries/history/" imageCount="4" topics="history" pinX="21" pinY="-15.3"&gt;
+        &lt;title&gt;Amet Consectetur Gallery&lt;/title&gt;
+        &lt;description&gt;Eiusmod pariatur culpa voluptate anim eu incididunt.&lt;/description&gt;
+      &lt;/gallery&gt;
+    &lt;/map&gt;
+  &lt;/map&gt;
+
+  &lt;html thumb="images/adopt-a-drain.png" url="https://www.adopt-a-drain.org" topics="environment, water"&gt;
+    &lt;title&gt;Adopt-A-Drain Website&lt;/title&gt;
+    &lt;description&gt;This shows an example displaying external HTML within the Kiosk.&lt;/description&gt;
+  &lt;/html&gt;
+&lt;/main&gt;
+</code></pre>
+</div>
+        <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Performance</h3>
+          <p>Following are recommendations to improve performance.</p>
+          <h5>Overall</h5>
+          <p>Use a machine with at least 16GB of RAM.</p>
+          <h5>Maps</h5>
+          <p>Check the dimensions of the <b>FullMapImage.jpg</b>. Make sure the width is 3000 pixels or smaller. Try using a smaller image.</p>
+          <p>User fewer map tiles. Maps with fewer than 200 tiles will perform best.</p>
+          <p>Adjust the map <b>switchPoint</b>. If your map has fewer tiles, try setting this number to a lower value between 1 and 2.</p>
+          <h5>Table of Contents</h5>
+          <p>Keep thumbnail images smaller - images that are 800 by 600 pixels or less will load faster than large images.</p>
+          <h5>Image Compression</h5>
+          <p>You may notice improvements to performance by compressing images. This is especially true for large images such as those used for the full map images.</p>
+          <p>The <b>ImageOptim</b> Mac application is free and can provide significant file size savings for <b>jpg</b> and <b>png</b> files. For more information, see the website: <a href="https://www.imageoptim.com"><b>www.imageoptim.com</b></a>.</p>
+          <hr />
+        </section>
+
+
+      </article>
+    </div>
+
+    <footer class="footer">Copyright &copy; 2018&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.wishpipe.com" target="_blank" class="link link--light">Wishpipe Studios</a></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>var get=function(t,e){return(e=e||document).querySelector(t)},getAll=function(t,e){return(e=e||document).querySelectorAll(t)};if(document.getElementsByClassName("demo").length>0){var i=0,txt="scribbler",speed=60;function typeItOut(){i<txt.length&&(document.getElementsByClassName("demo")[0].innerHTML+=txt.charAt(i),i++,setTimeout(typeItOut,speed))}setTimeout(typeItOut,1800)}window.addEventListener("load",function(){for(var t=getAll(".tab__container"),e=0;e<t.length;e++)get(".tab__menu",t[e]).addEventListener("click",n);function n(t){for(var e=t.currentTarget.parentNode,n=t.target,s=getAll(".tab",e),o=getAll(".tab__pane",e),i=get(`.${n.getAttribute("data-tab")}`,e),l=0;l<s.length;l++)s[l].classList.remove("active");for(l=0;l<o.length;l++)o[l].classList.remove("active");n.classList.add("active"),i.classList.add("active")}});var btns=getAll(".js-btn"),sections=getAll(".js-section");function setActiveLink(t){for(var e=0;e<btns.length;e++)btns[e].classList.remove("selected");t.target.classList.add("selected")}function smoothScrollTo(t,e){var n=sections[t];setActiveLink(e),window.scrollTo({behavior:"smooth",top:n.offsetTop-20,left:0})}if(btns.length&&sections.length>0)for(i=0;i<btns.length;i++)btns[i].addEventListener("click",smoothScrollTo.bind(this,i));window.addEventListener("scroll",function(){var t=get(".doc__nav > ul");t&&(window.pageYOffset>63?t.classList.add("fixed"):t.classList.remove("fixed"))});var topNav=get(".menu"),icon=get(".toggle");
+    </script>
+  </body>
+</html>
